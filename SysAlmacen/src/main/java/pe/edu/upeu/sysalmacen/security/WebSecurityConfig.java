@@ -57,7 +57,9 @@ public class WebSecurityConfig {
                         .requestMatchers(antMatcher("/mail/**")).permitAll()
                         .requestMatchers(antMatcher("/doc/**")).permitAll()
                         .requestMatchers(antMatcher("/v3/**")).permitAll()
-                        .anyRequest().authenticated()
+
+                        .requestMatchers("/api/**").permitAll() // <<--- Permite rutas tipo /api/*
+
                 )
                 .formLogin(AbstractHttpConfigurer::disable)
                 .exceptionHandling(e -> e.authenticationEntryPoint(jwtAuthenticationEntryPoint));
