@@ -1,0 +1,49 @@
+<h2 style="text-align: center; margin-top: 1rem;">
+  {{ isEdit ? 'Editar Salida' : 'Registrar Salida' }}
+</h2>
+
+<form [formGroup]="form" (ngSubmit)="guardar()" style="max-width: 600px; margin: auto;">
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Repuesto</mat-label>
+    <input matInput formControlName="repuesto">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Cantidad de Salida</mat-label>
+    <input matInput type="number" formControlName="cantidadSalida">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Responsable</mat-label>
+    <input matInput formControlName="responsable">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Código</mat-label>
+    <input matInput formControlName="codigo">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Fecha de Salida</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="fechaSalida">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Estado</mat-label>
+    <input matInput formControlName="estado">
+  </mat-form-field>
+
+  <div style="text-align: center; margin-top: 1.5rem;">
+    <button mat-raised-button color="primary" type="submit">
+      {{ isEdit ? 'Actualizar' : 'Guardar' }}
+    </button>
+    <button mat-raised-button color="warn" routerLink="/pages/salida" style="margin-left: 1rem;">
+      Cancelar
+    </button>
+  </div>
+</form>
+
+
+
